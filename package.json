@@ -1,0 +1,36 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "create cli applications, parse and format data in json, yaml. design an application architecture. write unit tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superpuper32/frontend-project-lvl2.git"
+  },
+  "keywords": [
+    "data",
+    "structures",
+    "algorithms",
+    "architecture",
+    "testing",
+    "debugging"
+  ],
+  "author": "Mikhail Pochitalin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/superpuper32/frontend-project-lvl2/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/superpuper32/frontend-project-lvl2#readme",
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
