@@ -1,8 +1,8 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "create cli applications, parse and format data in json, yaml. design an application architecture. write unit tests",
-  "main": "index.js",
+  "description": "Difference geneartor - create cli applications, parse and format data in json, yaml. design an application architecture. write unit tests",
+  "main": "src/index.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
@@ -31,12 +31,13 @@
   },
   "type": "module",
   "homepage": "https://github.com/superpuper32/frontend-project-lvl2#readme",
+  "dependencies": {
+    "commander": "6.2.1",
+    "lodash": "4.17.20"
+  },
   "devDependencies": {
     "eslint": "^7.15.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"
-  },
-  "dependencies": {
-    "commander": "^6.2.1"
   }
 }
