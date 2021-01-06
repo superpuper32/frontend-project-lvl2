@@ -27,6 +27,7 @@ jobs:
           make install
       env:
           CI: true
+          CODECLIMATE_KEY: ${{ secrets.CODECLIMATE_KEY }}
     - name: lint
       run: |
           make lint
