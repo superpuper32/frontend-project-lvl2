@@ -1,4 +1,5 @@
 # Difference generator
+[![Node CI](https://github.com/superpuper32/frontend-project-lvl2/workflows/Node%20CI/badge.svg)](https://github.com/superpuper32/frontend-project-lvl2/actions)
 
 Program that determines the difference between two data structures.
 
