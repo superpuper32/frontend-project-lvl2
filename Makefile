@@ -1,17 +1,25 @@
-install:
-	npm install
-
-publish:
-	npm publish --dry-run
-
-link:
-	npm link
+install: install-deps
 
 run:
-	gendiff
+		gendiff
 
 gendiff:
-	node bin/gendiff.js
+		node bin/gendiff.js
+
+install-deps:
+		npm ci
+
+link:
+		npm link
+
+test:
+		npm test
+
+test-coverage:
+	npm test -- --coverage --coverageProvider=v8
 
 lint:
-	npx eslint .
+		npx eslint .
+
+publish:
+		npm publish
