@@ -37,9 +37,11 @@
   "homepage": "https://github.com/superpuper32/frontend-project-lvl2#readme",
   "dependencies": {
     "commander": "6.2.1",
+    "js-yaml": "^4.0.0",
     "lodash": "4.17.20"
   },
   "devDependencies": {
+    "@jest/globals": "^26.6.2",
     "eslint": "^7.15.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
