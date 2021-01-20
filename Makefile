@@ -23,3 +23,5 @@ lint:
 
 publish:
 		npm publish
+
+.PHONY: test
