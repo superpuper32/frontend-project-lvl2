@@ -1,4 +1,5 @@
-/* eslint-disable import/prefer-default-export */
+import fs from 'fs';
+import path from 'path';
 import _ from 'lodash';
 
 export const genDiff = (data1, data2) => {
@@ -28,3 +29,10 @@ export const genDiff = (data1, data2) => {
 ${results.map((result) => result.join(' ')).join('\n')}
 }`;
 };
+
+export const getFileContent = (filepath) => {
+  const currentDirectory = process.cwd();
+  return fs.readFileSync(path.resolve(currentDirectory, filepath), 'utf8');
+};
+
+export const getFileType = (filepath) => path.extname(filepath);
