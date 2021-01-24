@@ -10,11 +10,11 @@ describe('genDiff compare correctly', () => {
     expect(genDiff(file1Path, file2Path)).toEqual(expectedFile);
   });
 
-  test('yaml files', () => {
-    const file1Path = getFixturePath('filepath1.yml');
-    const file2Path = getFixturePath('filepath2.yml');
-    const expectedFile = readFile('expected_file.txt');
+  // test('yaml files', () => {
+  //   const file1Path = getFixturePath('filepath1.yml');
+  //   const file2Path = getFixturePath('filepath2.yml');
+  //   const expectedFile = readFile('expected_file.txt');
 
-    expect(genDiff(file1Path, file2Path)).toEqual(expectedFile);
-  });
+  //   expect(genDiff(file1Path, file2Path)).toEqual(expectedFile);
+  // });
 });

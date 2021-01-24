@@ -35,4 +35,4 @@ export const getFileContent = (filepath) => {
   return fs.readFileSync(path.resolve(currentDirectory, filepath), 'utf8');
 };
 
-export const getFileType = (filepath) => path.extname(filepath);
+export const getFileType = (filepath) => path.extname(filepath).slice(1);

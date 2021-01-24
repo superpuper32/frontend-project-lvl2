@@ -1,27 +1,18 @@
-import { getFixturePath, readFile } from './utils.js';
-import { fileURLToPath } from 'url';
-
-import { genDiff } from '../src/utils.js';
 import parseFile from '../src/parsers.js';
+import { readFile } from './utils.js';
 
 describe('genDiff parse files correctly', () => {
   test('json type', () => {
-    const file1Path = readFile('file1.json');
-    const file2Path = readFile('file2.json');
-    const expectedResult = readFile('expected_file.txt');
+    const processObject = process.env.PATH;
+    const expectedResult = JSON.stringify(processObject);
 
-    expect(genDiff(parseFile(file1Path, 'json'), parseFile(file2Path, 'json'))).toBe(
-        expectedResult
-    );
+    expect(parseFile(expectedResult, 'json')).toEqual(processObject);
   });
 
   test('yaml type', () => {
-    const file1Path = getFixturePath('filepath1.yml');
-    const file2Path = getFixturePath('filepath2.yml');
-    const expectedResult = readFile('expected_file.txt');
+    const yamlFile = readFile('filepath1.yml');
+    const expectedResult = { timeout: 20, verbose: true, host: 'hexlet.io' };
 
-    expect(genDiff(parseFile(file1Path, 'yaml'), parseFile(file2Path, 'yaml'))).toBe(
-      expectedResult
-    );
+    expect(parseFile(yamlFile, 'yaml')).toEqual(expectedResult);
   });
 });
