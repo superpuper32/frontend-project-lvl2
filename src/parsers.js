@@ -4,7 +4,7 @@ export default (file, type) => {
   switch (type) {
     case 'json':
       return JSON.parse(file);
-    case 'yaml':
+    case 'yml':
       return yaml.load(file);
     default:
       throw Error(`${type} type is not recognised`);

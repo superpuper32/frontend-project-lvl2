@@ -13,6 +13,6 @@ describe('genDiff parse files correctly', () => {
     const yamlFile = readFile('filepath1.yml');
     const expectedResult = { timeout: 20, verbose: true, host: 'hexlet.io' };
 
-    expect(parseFile(yamlFile, 'yaml')).toEqual(expectedResult);
+    expect(parseFile(yamlFile, 'yml')).toEqual(expectedResult);
   });
 });

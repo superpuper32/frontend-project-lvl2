@@ -11,3 +11,5 @@ Program that determines the difference between two data structures.
 ## Example of using
 #### genDiff example for comparing JSON files
 <a href="https://asciinema.org/a/UfuLktGU3uq4b2gcdbpJj17Yl" target="_blank"><img src="https://asciinema.org/a/UfuLktGU3uq4b2gcdbpJj17Yl.svg" width="400px" /></a>
+
+#### genDiff example for comparing YAML files
