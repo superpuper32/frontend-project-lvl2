@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "Difference generator - create cli applications, parse and format data in json, yaml. design an application architecture. write unit tests",
-  "main": "src/index.js",
+  "main": "index.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
