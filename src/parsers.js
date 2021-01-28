@@ -7,6 +7,6 @@ export default (file, type) => {
     case 'yml':
       return yaml.load(file);
     default:
-      throw Error(`${type} type is not recognised`);
+      throw new Error(`${type} type is not recognised`);
   }
 };
