@@ -13,14 +13,14 @@ export const genDiff = (data1, data2) => {
     const value2 = _.get(data2, key);
 
     if (!_.has(data1, key)) {
-      results.push(['  +', `${key}:`, value2]);
+      results.push(['  -', `${key}:`, value2]);
     } else if (!_.has(data2, key)) {
-      results.push(['  -', `${key}:`, value1]);
+      results.push(['  +', `${key}:`, value1]);
     } else if (value1 === value2) {
       results.push(['   ', `${key}:`, value1]);
     } else {
-      results.push(['  +', `${key}:`, value2]);
-      results.push(['  -', `${key}:`, value1]);
+      results.push(['  -', `${key}:`, value2]);
+      results.push(['  +', `${key}:`, value1]);
     }
   });
   results.sort((a, b) => a[1].localeCompare(b[1]));
