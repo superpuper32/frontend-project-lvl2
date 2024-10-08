@@ -18,14 +18,14 @@ Utility features:
 
 format stylish of determining the difference between JSON files
 
-```bash
-gendiff filepath1.json filepath2.json
+```sh
+$ gendiff filepath1.json filepath2.json
 ```
 <a href="https://asciinema.org/a/UfuLktGU3uq4b2gcdbpJj17Yl" target="_blank"><img src="https://asciinema.org/a/UfuLktGU3uq4b2gcdbpJj17Yl.svg" width="400px" /></a>
 
 format stylish of determining the difference between YAML files
 
-```bash
-gendiff filepath1.yml filepath2.yml
+```sh
+$ gendiff filepath1.yml filepath2.yml
 ```
 <a href="https://asciinema.org/a/nqp7YMW071rLG12OfnN84xOAT" target="_blank"><img src="https://asciinema.org/a/nqp7YMW071rLG12OfnN84xOAT.svg" width="400px" /></a>

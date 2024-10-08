@@ -26,8 +26,8 @@ export const genDiff = (data1, data2) => {
   results.sort((a, b) => a[1].localeCompare(b[1]));
 
   return `{
-${results.map((result) => result.join(' ')).join('\n')}
-}`;
+    ${results.map((result) => result.join(' ')).join('\n')}
+  }`;
 };
 
 export const getFileContent = (filepath) => {

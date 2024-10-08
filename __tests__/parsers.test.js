@@ -1,5 +1,5 @@
-import parseFile from '../src/parsers.js';
 import { readFile } from './utils.js';
+import parseFile from '../src/parsers.js';
 
 describe('genDiff parse files correctly', () => {
   test('json type', () => {
