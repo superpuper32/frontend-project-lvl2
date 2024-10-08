@@ -7,6 +7,9 @@ on:
   - push
   - pull_request
 
+env:
+  CI: true
+
 jobs:
   build:
 
@@ -14,24 +17,19 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [20.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-    - name: install
-      run: |
-          make install
-      env:
-          CI: true
-    - name: Run linter
-      run: |
-          make lint
-    - name: Test & publish test coverage
-      uses: paambaati/codeclimate-action@v2.7.4
+        cache: 'npm'
+    - run: make install
+    - run: make lint
+    - name: Test & publish code coverage
+      uses: paambaati/codeclimate-action@v5.0.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:

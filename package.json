@@ -10,7 +10,7 @@
     "test": "npx jest"
   },
   "engines": {
-    "node": ">=13"
+    "node": ">=14"
   },
   "repository": {
     "type": "git",
@@ -39,16 +39,22 @@
   },
   "homepage": "https://github.com/superpuper32/frontend-project-lvl2#readme",
   "dependencies": {
-    "commander": "6.2.1",
+    "commander": "^12.1.0",
     "js-yaml": "4.0.0",
-    "lodash": "4.17.20"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@jest/globals": "26.6.2",
-    "eslint": "7.15.0",
-    "eslint-config-airbnb-base": "14.2.1",
-    "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-jest": "24.1.3",
-    "jest": "26.6.3"
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.7.0",
+    "@jest/globals": "^29.7.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "globals": "^15.8.0",
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0",
+    "lint-staged": "^15.2.7",
+    "npm-check-updates": "^16.14.20",
+    "simple-git-hooks": "^2.11.1"
   }
 }
