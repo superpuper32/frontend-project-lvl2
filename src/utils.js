@@ -30,7 +30,7 @@ export const genDiff = (data1, data2) => {
   }`;
 };
 
-export const getFileContent = (filepath) => {
+export const readFile = (filepath) => {
   const currentDirectory = process.cwd();
   return readFileSync(path.resolve(currentDirectory, filepath), 'utf8');
 };
