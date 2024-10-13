@@ -9,8 +9,8 @@ export default (filepath1, filepath2) => {
   const type1 = getFileType(filepath1);
   const type2 = getFileType(filepath2);
 
-  const parsedFile1 = parsers[type1](content1);
-  const parsedFile2 = parsers[type2](content2);
+  const parsed1 = parsers[type1](content1);
+  const parsed2 = parsers[type2](content2);
 
-  return genDiff(parsedFile1, parsedFile2);
+  return genDiff(parsed1, parsed2);
 };
