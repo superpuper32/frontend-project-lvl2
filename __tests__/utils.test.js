@@ -1,12 +1,12 @@
-import { getFixturePath, readFile } from './utils.js';
-import { getFileContent, getFileType } from '../src/utils.js';
+import { getFixturePath, readFile as readFileUtils } from './utils.js';
+import { readFile, getFileType } from '../src/utils.js';
 
 describe('utils working correctly', () => {
   test('getFileContent return correct ', () => {
     const filePath = getFixturePath('expected_file.txt');
-    const expectedFile = readFile('expected_file.txt');
+    const expectedFile = readFileUtils('expected_file.txt');
 
-    expect(getFileContent(filePath)).toBe(expectedFile);
+    expect(readFile(filePath)).toBe(expectedFile);
   });
 
   test('getFileType return correct extension', () => {
