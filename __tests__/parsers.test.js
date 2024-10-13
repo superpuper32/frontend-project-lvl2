@@ -1,26 +1,27 @@
-import { readFile } from './utils.js';
-import parseFile from '../src/parsers.js';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+import path from 'path';
+import { beforeEach } from '@jest/globals';
 
-describe('genDiff parse files correctly', () => {
-  test('json type', () => {
-    const processObject = process.env.PATH;
-    const expectedResult = JSON.stringify(processObject);
+import parsers from '../src/parsers.js';
 
-    expect(parseFile(expectedResult, 'json')).toEqual(processObject);
-  });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-  test('yaml type', () => {
-    const yamlFile = readFile('filepath2.yml');
-    const expectedResult = { timeout: 20, verbose: true, host: 'hexlet.io' };
+const getFixturePath = (name) => path.join(__dirname, '..', '__fixtures__', 'parsers', name);
+const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-    expect(parseFile(yamlFile, 'yml')).toEqual(expectedResult);
-  });
+const formats = ['json', 'yml', 'yaml'];
 
-  test('unknown type', () => {
-    const txtFile = readFile('expected_file.txt');
+let expected;
 
-    expect(() => {
-      parseFile(txtFile, 'txt');
-    }).toThrowError(/^txt type is not recognised$/);
-  });
+beforeEach(() => {
+  expected = readFile('result.json');
+});
+
+test.each(formats)('%s', (format) => {
+  const file = readFile(`file.${format}`);
+  const actual = parsers[format](file);
+
+  expect(actual).toEqual(JSON.parse(expected));
 });

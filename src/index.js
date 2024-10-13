@@ -1,5 +1,6 @@
-import { genDiff, readFile, getFileType } from './utils.js';
+import genDiff from './genDiff.js';
 import parsers from './parsers.js';
+import { readFile, getFileType } from './utils.js';
 
 export default (filepath1, filepath2) => {
   const content1 = readFile(filepath1);
