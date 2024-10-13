@@ -1,9 +1,9 @@
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import path from 'path';
+import yaml from 'js-yaml';
 import { beforeEach } from '@jest/globals';
 
-// import { getFixturePath, readFile } from './utils.js';
 import genDiff from '../src/genDiff.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -23,7 +23,12 @@ describe('genDiff compare correctly', () => {
     const f1 = JSON.parse(readFile('f1.json'));
     const f2 = JSON.parse(readFile('f2.json'));
 
-    console.log(genDiff(f1, f2));
+    expect(genDiff(f1, f2)).toEqual(expected);
+  });
+
+  test('yml files', () => {
+    const f1 = yaml.load(readFile('f1.yml'));
+    const f2 = yaml.load(readFile('f2.yml'));
 
     expect(genDiff(f1, f2)).toEqual(expected);
   });
