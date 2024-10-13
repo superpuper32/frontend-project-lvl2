@@ -1,4 +1,4 @@
-import fs from 'fs';
+import { readFileSync } from 'node:fs';
 import path from 'path';
 import _ from 'lodash';
 
@@ -30,9 +30,9 @@ export const genDiff = (data1, data2) => {
   }`;
 };
 
-export const getFileContent = (filepath) => {
+export const readFile = (filepath) => {
   const currentDirectory = process.cwd();
-  return fs.readFileSync(path.resolve(currentDirectory, filepath), 'utf8');
+  return readFileSync(path.resolve(currentDirectory, filepath), 'utf8');
 };
 
 export const getFileType = (filepath) => path.extname(filepath).slice(1);
