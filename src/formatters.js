@@ -32,8 +32,6 @@ const formatDiff = (diffTree) => {
       status, key, value, valueFrom, valueTo,
     }) => {
       switch (status) {
-        case 'unchanged':
-          return `${genIndent(depth, 'unchanged')}${key}: ${stringify(value, depth + 1)}`;
         case 'removed':
           return `${genIndent(depth, 'removed')}${key}: ${stringify(value, depth + 1)}`;
         case 'added':
@@ -46,7 +44,7 @@ const formatDiff = (diffTree) => {
         case 'nested':
           return `${genIndent(depth, 'nested')}${key}: ${iter(value, depth + 1)}`;
         default:
-          throw new Error('Unknown type!');
+          return `${genIndent(depth, 'unchanged')}${key}: ${stringify(value, depth + 1)}`;
       }
     });
     return [
