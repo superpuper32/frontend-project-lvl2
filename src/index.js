@@ -1,8 +1,9 @@
-import genDiff from './genDiff.js';
 import parsers from './parsers.js';
+import genDiff from './genDiff.js';
+import formatDiff from './formatters.js';
 import { readFile, getFileType } from './utils.js';
 
-export default (filepath1, filepath2, formatter) => {
+export default (filepath1, filepath2) => {
   const file1 = readFile(filepath1);
   const file2 = readFile(filepath2);
 
@@ -12,5 +13,7 @@ export default (filepath1, filepath2, formatter) => {
   const parsed1 = parsers[type1](file1);
   const parsed2 = parsers[type2](file2);
 
-  return genDiff(parsed1, parsed2, formatter);
+  const diffTree = genDiff(parsed1, parsed2);
+
+  return formatDiff(diffTree);
 };

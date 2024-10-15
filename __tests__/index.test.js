@@ -3,8 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { beforeEach } from '@jest/globals';
 
-import parsers from '../src/parsers.js';
-import genDiff from '../src/genDiff.js';
+import genDiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,8 +21,8 @@ beforeEach(() => {
 
 describe('genDiff compare correctly', () => {
   test.each(formats)('%s files', (format) => {
-    const f1 = parsers[format](readFile(`file1.${format}`));
-    const f2 = parsers[format](readFile(`file2.${format}`));
+    const f1 = getFixturePath(`file1.${format}`);
+    const f2 = getFixturePath(`file2.${format}`);
 
     expect(genDiff(f1, f2)).toEqual(expected);
   });
