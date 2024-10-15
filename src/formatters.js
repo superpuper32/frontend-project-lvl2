@@ -9,7 +9,7 @@ const REPLACERS = {
   removed: '- ',
 };
 
-const genIndent = (depth, status) => `${REPLACER.repeat(SPACES_COUNT * depth - 2)}${REPLACERS[status]}`;
+const genIndent = (depth, status) => REPLACER.repeat(SPACES_COUNT * depth - 2) + REPLACERS[status];
 const bracketIndent = (depth) => REPLACER.repeat(SPACES_COUNT * depth - SPACES_COUNT);
 
 const stringify = (curValue, depth) => {

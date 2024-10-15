@@ -10,5 +10,5 @@ program
   .description('Compares two configuration files and shows a difference.')
   .action((filePath1, filePath2) => console.log(genDiff(filePath1, filePath2, 'stylish')))
   .helpOption('-h, --help', 'output usage information')
-  .option('-f, --format [type]', 'output format')
+  .option('-f, --format [type]', 'output format', 'stylish')
   .parse(process.argv);
