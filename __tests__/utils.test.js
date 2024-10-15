@@ -3,8 +3,8 @@ import { readFile, getFileType } from '../src/utils.js';
 
 describe('utils working correctly', () => {
   test('getFileContent return correct ', () => {
-    const filePath = getFixturePath('expected_file.txt');
-    const expectedFile = readFileUtils('expected_file.txt');
+    const filePath = getFixturePath('expected.txt');
+    const expectedFile = readFileUtils('expected.txt');
 
     expect(readFile(filePath)).toBe(expectedFile);
   });

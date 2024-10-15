@@ -1,29 +1,48 @@
 import _ from 'lodash';
 
 const genDiff = (data1, data2) => {
-  const keys1 = _.keys(data1);
-  const keys2 = _.keys(data2);
+  const keys1 = Object.keys(data1);
+  const keys2 = Object.keys(data2);
   const keys = _.union(keys1, keys2);
+  const sorted = _.sortBy(keys);
 
-  const results = [];
-  keys.forEach((key) => {
-    const value1 = _.get(data1, key);
-    const value2 = _.get(data2, key);
+  return sorted.map((key) => {
+    const value1 = data1[key];
+    const value2 = data2[key];
 
-    if (!_.has(data1, key)) {
-      results.push(['  +', `${key}:`, value2]);
-    } else if (!_.has(data2, key)) {
-      results.push(['  -', `${key}:`, value1]);
-    } else if (value1 === value2) {
-      results.push(['   ', `${key}:`, value1]);
-    } else {
-      results.push(['  -', `${key}:`, value1]);
-      results.push(['  +', `${key}:`, value2]);
+    if (_.isObject(value1) && _.isObject(value2)) {
+      return {
+        status: 'nested',
+        key,
+        value: genDiff(value1, value2),
+      };
+    } if (!Object.hasOwn(data1, key)) {
+      return {
+        status: 'added',
+        key,
+        value: value2,
+      };
+    } if (!Object.hasOwn(data2, key)) {
+      return {
+        status: 'removed',
+        key,
+        value: value1,
+      };
+    } if (data1[key] !== data2[key]) {
+      return {
+        key,
+        status: 'updated',
+        valueFrom: value1,
+        valueTo: value2,
+      };
     }
-  });
-  results.sort((a, b) => a[1].localeCompare(b[1]));
 
-  return `{${'\n'}${results.map((result) => result.join(' ')).join('\n')}${'\n'}}`;
+    return {
+      key,
+      status: 'unchanged',
+      value: value1,
+    };
+  });
 };
 
 export default genDiff;
