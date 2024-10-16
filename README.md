@@ -29,3 +29,10 @@ format stylish of determining the difference between YAML files
 $ gendiff filepath1.yml filepath2.yml
 ```
 <a href="https://asciinema.org/a/nqp7YMW071rLG12OfnN84xOAT" target="_blank"><img src="https://asciinema.org/a/nqp7YMW071rLG12OfnN84xOAT.svg" width="400px" /></a>
+
+Recursion comparison json or yaml in stylish format
+
+```sh
+$ gendiff filepath1.yml filepath2.yml
+```
+<a href="https://asciinema.org/a/qIytf5shxickOrtmhRpz5SLcq" target="_blank"><img src="https://asciinema.org/a/qIytf5shxickOrtmhRpz5SLcq.svg" width="400px" /></a>
