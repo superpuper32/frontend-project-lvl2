@@ -26,7 +26,7 @@ const stringify = (curValue, depth) => {
   ].join('\n');
 };
 
-const formatDiff = (diffTree) => {
+const stylish = (diffTree) => {
   const iter = (innerTree, depth = 1) => {
     const lines = innerTree.flatMap(({
       status, key, value, valueFrom, valueTo,
@@ -56,4 +56,4 @@ const formatDiff = (diffTree) => {
 
   return iter(diffTree);
 };
-export default formatDiff;
+export default stylish;
