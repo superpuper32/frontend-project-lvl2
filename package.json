@@ -6,6 +6,9 @@
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
+  "simple-git-hooks": {
+    "pre-push": "npx lint-staged"
+  },
   "scripts": {
     "test": "npx jest"
   },
@@ -42,6 +45,9 @@
     "commander": "^12.1.0",
     "js-yaml": "4.0.0",
     "lodash": "^4.17.21"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
