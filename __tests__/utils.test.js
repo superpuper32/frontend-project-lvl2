@@ -1,5 +1,5 @@
 import { getFixturePath, readFile as readFileUtils } from './utils.js';
-import { readFile, getFileType } from '../src/utils.js';
+import { readFile, getType } from '../src/utils.js';
 
 describe('utils working correctly', () => {
   test('getFileContent return correct ', () => {
@@ -10,8 +10,8 @@ describe('utils working correctly', () => {
   });
 
   test('getFileType return correct extension', () => {
-    expect(getFileType('/src/index.js')).toBe('js');
-    expect(getFileType('/db/data.json')).toBe('json');
-    expect(getFileType('/')).toBe('');
+    expect(getType('/src/index.js')).toBe('js');
+    expect(getType('/db/data.json')).toBe('json');
+    expect(getType('/')).toBe('');
   });
 });
