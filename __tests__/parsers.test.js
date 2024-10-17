@@ -1,8 +1,6 @@
-/* eslint prefer-const: "error" */
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import path from 'path';
-// import { beforeEach } from '@jest/globals';
 
 import parsers from '../src/parsers.js';
 
@@ -13,12 +11,6 @@ const getFixturePath = (name) => path.join(__dirname, '..', '__fixtures__', 'par
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 const formats = ['json', 'yml', 'yaml'];
-
-// let expected;
-
-// beforeEach(() => {
-// expected = readFile('result.json');
-// });
 
 test.each(formats)('%s', (format) => {
   const file = readFile(`file.${format}`);
