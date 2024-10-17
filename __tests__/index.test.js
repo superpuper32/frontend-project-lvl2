@@ -1,8 +1,6 @@
-/* eslint prefer-const: "error" */
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import path from 'path';
-// import { beforeEach } from '@jest/globals';
 
 import genDiff from '../index.js';
 
@@ -13,14 +11,6 @@ const getFixturePath = (name) => path.join(__dirname, '..', '__fixtures__', name
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 const formats = ['json', 'yml'];
-
-// let expected; let expectedPlain; let expectedJSON;
-
-// beforeEach(() => {
-// expected = readFile('expected.txt');
-// expectedPlain = readFile('expected_plain.txt');
-// expectedJSON = readFile('expected_json.txt');
-// });
 
 describe('genDiff compare correctly', () => {
   test.each(formats)('%s files', (format) => {
