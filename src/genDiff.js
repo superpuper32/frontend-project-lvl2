@@ -1,16 +1,14 @@
 import _ from 'lodash';
 
 const genDiff = (data1, data2) => {
-  const keys1 = Object.keys(data1);
-  const keys2 = Object.keys(data2);
-  const keys = _.union(keys1, keys2);
-  const sorted = _.sortBy(keys);
+  const keys = _.union(Object.keys(data1), Object.keys(data2));
 
-  return sorted.map((key) => {
+  return _.sortBy(keys).map((key) => {
     const value1 = data1[key];
     const value2 = data2[key];
 
     const diff = { key };
+
     if (_.isObject(value1) && _.isObject(value2)) {
       diff.status = 'nested';
       diff.value = genDiff(value1, value2);
