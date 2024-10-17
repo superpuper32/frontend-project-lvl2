@@ -43,3 +43,10 @@ Recursion comparison json or yaml in polish format
 $ gendiff --format plain filepath1.yml filepath2.yml
 ```
 <a href="https://asciinema.org/a/VH00kkz7EVpsO7IM7AmscQj3q" target="_blank"><img src="https://asciinema.org/a/VH00kkz7EVpsO7IM7AmscQj3q.svg" width="400px" /></a>
+
+Recursion comparison json or yaml in json format
+
+```sh
+$ gendiff --format json filepath1.yml filepath2.yml
+```
+<a href="https://asciinema.org/a/yeXQmduyHaF6GKms9nfFJfLSN" target="_blank"><img src="https://asciinema.org/a/yeXQmduyHaF6GKms9nfFJfLSN.svg" width="400px" /></a>
