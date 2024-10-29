@@ -1,3 +1,4 @@
+/* fp no-proxy: "error" */
 import { readFileSync } from 'node:fs';
 import path from 'path';
 
