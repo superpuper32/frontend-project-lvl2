@@ -14,8 +14,17 @@ const formats = ['json', 'yml', 'yaml'];
 
 test.each(formats)('%s', (format) => {
   const file = readFile(`file.${format}`);
-  const actual = parsers[format](file);
+  const actual = parsers(file, format);
   const expected = readFile('result.json');
 
   expect(actual).toEqual(JSON.parse(expected));
+});
+
+test('throw Error for not recognised file type', () => {
+  const file = readFile('file.json');
+  const wrongFormat1 = 'js';
+  const wrongFormat2 = 'uml';
+
+  expect(() => parsers(file, wrongFormat1)).toThrow(new Error(`File type ${wrongFormat1} not recognised`));
+  expect(() => parsers(file, wrongFormat2)).toThrow(new Error(`File type ${wrongFormat2} not recognised`));
 });

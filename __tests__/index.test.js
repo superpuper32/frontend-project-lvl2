@@ -38,4 +38,11 @@ describe('genDiff compare correctly', () => {
 
     expect(genDiff(f1, f2, formatName)).toEqual(expectedJSON);
   });
+
+  test('throwed Error for not recognised file type', () => {
+    const f1 = getFixturePath('file1.js');
+    const f2 = getFixturePath('file2.uml');
+
+    expect(() => genDiff(f1, f2)).toThrow();
+  });
 });

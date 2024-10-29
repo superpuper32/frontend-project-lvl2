@@ -7,3 +7,18 @@ export const readFile = (filepath) => {
 };
 
 export const getType = (filepath) => path.extname(filepath).slice(1);
+
+export const protect = (obj) => {
+  const keys = Object.keys(obj);
+
+  const handler = {
+    get(target, prop) {
+      if (!keys.includes(prop)) {
+        throw new Error(`File type ${prop} not recognised`);
+      }
+      return target[prop];
+    },
+  };
+
+  return new Proxy(obj, handler);
+};
