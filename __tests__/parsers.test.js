@@ -1,6 +1,9 @@
+/* eslint "fp/no-let": "off" */
+/* eslint "fp/no-mutation": "off" */
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import path from 'path';
+import { beforeEach } from '@jest/globals';
 
 import parsers from '../src/parsers.js';
 
@@ -12,10 +15,15 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 
 const formats = ['json', 'yml', 'yaml'];
 
+let expected;
+
+beforeEach(() => {
+  expected = readFile('result.json');
+});
+
 test.each(formats)('%s', (format) => {
   const file = readFile(`file.${format}`);
   const actual = parsers(file, format);
-  const expected = readFile('result.json');
 
   expect(actual).toEqual(JSON.parse(expected));
 });
