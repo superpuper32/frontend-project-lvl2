@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
 import pluginJs from '@eslint/js';
 import importPlugin from 'eslint-plugin-import';
+import fp from 'eslint-plugin-fp';
 
 // mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
@@ -35,6 +36,9 @@ export default [
   },
   ...compat.extends('airbnb-base'),
   {
+    plugins: {
+      fp,
+    },
     rules: {
       'no-underscore-dangle': [
         'error',

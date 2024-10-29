@@ -1,28 +1,12 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
 
+import { protect } from '../utils.js';
+
 const formatters = {
-  stylish: (tree) => {
-    try {
-      return stylish(tree);
-    } catch (e) {
-      throw new Error(e);
-    }
-  },
-  plain: (tree) => {
-    try {
-      return plain(tree);
-    } catch (e) {
-      throw new Error(e);
-    }
-  },
-  json: (tree) => {
-    try {
-      return JSON.stringify(tree);
-    } catch (e) {
-      throw new Error(e);
-    }
-  },
+  stylish: (tree) => stylish(tree),
+  plain: (tree) => plain(tree),
+  json: (tree) => JSON.stringify(tree),
 };
 
-export default (tree, formatName = 'stylish') => formatters[formatName](tree);
+export default (tree, formatName = 'stylish') => protect(formatters)[formatName](tree);
