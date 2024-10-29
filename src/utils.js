@@ -1,4 +1,4 @@
-/* fp no-proxy: "error" */
+/* eslint "fp/no-proxy": "off" */
 import { readFileSync } from 'node:fs';
 import path from 'path';
 
